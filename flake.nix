@@ -2,14 +2,18 @@
   description = "My Nix home configuration";
 
   inputs = {
-    nix-darwin {
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follow = "nixpkgs";
+    };
+    nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, home-manager, nix-darwin, nixpkgs }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -33,8 +37,8 @@
 
       users.users.luuk = {
         name = "luuk";
-        home = "/Users/luuk"
-      }
+        home = "/Users/luuk";
+      };
 
       # Enable alternative shell support in nix-darwin.
       programs.zsh.enable = true;
@@ -45,8 +49,19 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#corellia
-    darwinConfigurations."corellia" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+    darwinConfigurations = {
+      corellia = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          configuration
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.luuk = import ./home.nix;
+          }
+        ];
+      };
     };
   };
 }
