@@ -1,0 +1,2 @@
+# nome
+Nix home configs
