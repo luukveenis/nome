@@ -40,6 +40,12 @@
         home = "/Users/luuk";
       };
 
+      # Fix caps escape
+      system.keyboard = {
+        enableKeyMapping = true;
+        remapCapsLockToEscape = true;
+      };
+
       # Enable alternative shell support in nix-darwin.
       programs.zsh.enable = true;
 
