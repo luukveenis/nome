@@ -33,14 +33,7 @@
   less.enable = true;
 
   # Dev tool versioning
-  mise = {
-    enable = true;
-    enableZshIntegration = true;
-    globalConfig = ''
-      [tools]
-      ruby = '3.4.6'
-    '';
-  };
+  mise = import ./mise.nix { inherit pkgs; };
 
   # For Git rebases and such
   neovim = import ./neovim.nix { inherit pkgs; };
