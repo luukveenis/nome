@@ -4,6 +4,7 @@ let
   misc = with pkgs; [
     httpie
     jq
+    libyaml
     openssl_3
   ];
 
