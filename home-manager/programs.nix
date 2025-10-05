@@ -32,6 +32,12 @@
   # is more
   less.enable = true;
 
+  # Dev tool versioning
+  mise = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   # For Git rebases and such
   neovim = import ./neovim.nix { inherit pkgs; };
 
