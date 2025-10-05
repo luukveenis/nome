@@ -40,6 +40,8 @@
     enable = true;
   };
 
+  tmux = import ./tmux.nix { inherit pkgs; };
+
   # My fav shell
   zsh = import ./zsh.nix { inherit pkgs; };
 }
