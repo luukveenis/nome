@@ -24,6 +24,11 @@
     #};
   };
 
+  kitty = {
+    enable = true;
+    themeFile = "Catppuccin-Macchiato";
+  };
+
   # is more
   less.enable = true;
 
