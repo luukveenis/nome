@@ -2,15 +2,19 @@
   description = "My Nix home configuration";
 
   inputs = {
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "https://flakehub.com/f/nix-community/home-manager/0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
+      url = "https://flakehub.com/f/nix-darwin/nix-darwin/0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
   };
 
   outputs = inputs@{ self, home-manager, nix-darwin, nixpkgs }:
@@ -21,6 +25,8 @@
       # environment.systemPackages = [
       # pkgs.vim
       # ];
+
+      nix.enable = false;
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
@@ -47,12 +53,9 @@
       };
 
       # Allow touch ID for sudo
-      security.pam.enableSudoTouchIdAuth = true;
+      security.pam.services.sudo_local.touchIdAuth = true;
 
-      # Enable alternative shell support in nix-darwin.
       programs.zsh.enable = true;
-
-      services.nix-daemon.enable = true;
     };
   in
   {
@@ -63,6 +66,7 @@
         system = "aarch64-darwin";
         modules = [
           configuration
+          inputs.determinate.darwinModules.default
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
