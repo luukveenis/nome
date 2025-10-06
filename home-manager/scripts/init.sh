@@ -11,4 +11,21 @@ fi
 # eval "$(determinate-nixd completion zsh)"
 
 # random zsh stuff that probably belongs elsewhere
-bindkey -e
+bindkey -v
+
+# Random helper functions
+v(){
+  if [[ -z $1 ]]; then
+    FILE=$(fd | fzy) && vim "$FILE"
+  else
+    vim $*
+  fi
+}
+
+gbo() {
+  if [[ -z $1 ]]; then
+    git checkout $(git branch | fzy)
+  else
+    git checkout $*
+  fi
+}
