@@ -2,6 +2,8 @@
 
 let
   misc = with pkgs; [
+    fd
+    fzy
     httpie
     jq
   ];
