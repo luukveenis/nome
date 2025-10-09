@@ -7,6 +7,9 @@
       url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
     home-manager = {
       url = "https://flakehub.com/f/nix-community/home-manager/0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -108,6 +111,8 @@
           self.darwinModules.base
           inputs.determinate.darwinModules.default
           inputs.home-manager.darwinModules.home-manager
+          inputs.nix-homebrew.darwinModules.nix-homebrew
+          self.darwinModules.homebrew
           self.darwinModules.home-manager
         ];
       };
@@ -122,6 +127,7 @@
             ];
           };
 
+        homebrew = { pkgs, ... }: import ./homebrew { inherit pkgs; };
         home-manager = { pkgs, ... }: import ./home-manager { inherit pkgs stateVersion username; };
       };
 

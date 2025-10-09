@@ -13,6 +13,8 @@ fi
 # random zsh stuff that probably belongs elsewhere
 bindkey -v
 
+eval "$(~/.local/bin/mise activate)"
+
 # Random helper functions
 v(){
   if [[ -z $1 ]]; then
