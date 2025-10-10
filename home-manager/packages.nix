@@ -1,6 +1,10 @@
 { pkgs }:
 
 let
+  communication = with pkgs; [
+    zoom-us
+  ];
+
   misc = with pkgs; [
     fd
     fzy
@@ -12,5 +16,6 @@ let
     python314
   ];
 in
-misc
+communication
+++ misc
 ++ pythonTools
