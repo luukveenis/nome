@@ -13,7 +13,7 @@ fi
 # random zsh stuff that probably belongs elsewhere
 bindkey -v
 
-eval "$(~/.local/bin/mise activate)"
+eval "$(/opt/homebrew/bin/mise activate)"
 
 # Random helper functions
 v(){
