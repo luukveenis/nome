@@ -4,8 +4,24 @@
   enable = true;
 
   autocd = false;
-  autosuggestion.enable = true;
-  enableCompletion = true;
   initContent = builtins.readFile ./scripts/init.sh;
   package = pkgs.zsh;
+
+  prezto = {
+    enable = true;
+    editor = {
+      keymap = "vi";
+    };
+    pmodules = [
+      "prompt"
+      "git"
+      "completion"
+      "history-substring-search"
+      "autosuggestions"
+      "syntax-highlighting"
+    ];
+    prompt = {
+      theme = "sorin";
+    };
+  };
 }
