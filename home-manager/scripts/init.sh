@@ -19,6 +19,9 @@ bindkey "^N" history-substring-search-down
 
 eval "$(/opt/homebrew/bin/mise activate)"
 
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+export PGDATA="/opt/homebrew/var/postgresql@18"
+
 # Random helper functions
 v(){
   if [[ -z $1 ]]; then
