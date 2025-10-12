@@ -13,6 +13,10 @@ fi
 # random zsh stuff that probably belongs elsewhere
 bindkey -v
 
+# Rebind history substring search shortcuts
+bindkey "^P" history-substring-search-up
+bindkey "^N" history-substring-search-down
+
 eval "$(/opt/homebrew/bin/mise activate)"
 
 # Random helper functions
