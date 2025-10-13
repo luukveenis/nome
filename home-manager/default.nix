@@ -13,6 +13,12 @@
       {
         home = {
           inherit (pkgs.lib) homeDirectory;
+          file = {
+            ".inputrc" = {
+              text = "set editing-mode vi";
+              executable = false;
+            };
+          };
           packages = import ./packages.nix { inherit pkgs; };
           sessionVariables = import ./env.nix { inherit pkgs username; };
           # shellAliases = (import ./aliases.nix { inherit pkgs; }).shell;
