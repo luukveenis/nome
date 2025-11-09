@@ -32,4 +32,24 @@
       flavor = "mocha";
     };
   };
+
+  keymaps = [
+    {
+      action = ":w!<cr>";
+      key = "<leader>w";
+      mode = "n";
+      options = {
+        silent = true;
+      };
+    }
+  ];
+
+  plugins = {
+    fzf-lua = {
+      enable = true;
+      keymaps = {
+        "<leader>e" = "git_files";
+      };
+    };
+  };
 }
