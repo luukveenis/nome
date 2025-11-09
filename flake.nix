@@ -18,6 +18,9 @@
       url = "https://flakehub.com/f/nix-darwin/nix-darwin/0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
   };
 
@@ -38,6 +41,7 @@
           }
         );
 
+      nixvim = inputs.nixvim;
       stateVersion = "25.05";
       system = "aarch64-darwin";
       username = "luuk";
@@ -128,7 +132,7 @@
           };
 
         homebrew = { pkgs, ... }: import ./homebrew { inherit pkgs; };
-        home-manager = { pkgs, ... }: import ./home-manager { inherit pkgs stateVersion username; };
+        home-manager = { pkgs, ... }: import ./home-manager { inherit pkgs nixvim stateVersion username; };
       };
 
       templates = import ./templates;

@@ -32,8 +32,8 @@
   # is more
   less.enable = true;
 
-  # For Git rebases and such
-  neovim = import ./neovim.nix { inherit pkgs; };
+  # Nixvim for easier Neovim configuration
+  nixvim = import ./nixvim.nix { inherit pkgs; };
 
   # ripgrep
   ripgrep = {

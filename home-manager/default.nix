@@ -1,5 +1,6 @@
 {
   pkgs,
+  nixvim,
   stateVersion,
   username,
 }:
@@ -24,7 +25,7 @@
           # shellAliases = (import ./aliases.nix { inherit pkgs; }).shell;
           inherit stateVersion username;
         };
-        imports = [ ];
+        imports = [ nixvim.homeModules.nixvim ];
         programs = import ./programs.nix { inherit pkgs; };
       };
   };
