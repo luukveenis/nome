@@ -8,6 +8,10 @@
   viAlias = true;
   vimAlias = true;
 
+  globals = {
+    mapleader = " ";
+  };
+
   opts = {
     expandtab = true;
     softtabstop = 2;
