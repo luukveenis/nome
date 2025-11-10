@@ -51,5 +51,30 @@
         "<leader>e" = "git_files";
       };
     };
+
+    lsp = {
+      enable = true;
+      inlayHints = true;
+      keymaps = {
+        lspBuf = {
+          "K" = "hover";
+          "gD" = "declaration";
+          "gd" = "definition";
+          "gr" = "references";
+          "gI" = "implementation";
+          "gy" = "type_definition";
+          "<leader>ca" = "code_action";
+          "<leader>cr" = "rename";
+        };
+      };
+      servers = {
+        bashls.enable = true;
+        lua_ls.enable = true;
+        nil_ls.enable = true;
+        rubocop.enable = true;
+        ruby_lsp.enable = true;
+        yamlls.enable = true;
+      };
+    };
   };
 }
