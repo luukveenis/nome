@@ -10,6 +10,7 @@ let
     fzy
     httpie
     jq
+    nixd
   ];
 
   pythonTools = with pkgs; [
