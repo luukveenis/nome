@@ -71,8 +71,14 @@
         bashls.enable = true;
         lua_ls.enable = true;
         nil_ls.enable = true;
-        rubocop.enable = true;
-        ruby_lsp.enable = true;
+        rubocop = {
+          enable = true;
+          cmd = ["bundle" "exec" "rubocop" "--lsp"];
+        };
+        ruby_lsp = {
+          enable = true;
+          cmd = ["mise" "x" "--" "ruby-lsp"];
+        };
         yamlls.enable = true;
       };
     };
