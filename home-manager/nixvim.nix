@@ -83,5 +83,8 @@
         yamlls.enable = true;
       };
     };
+
+    endwise.enable = true;
+    vim-surround.enable = true;
   };
 }
