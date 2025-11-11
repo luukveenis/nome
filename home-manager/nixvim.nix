@@ -49,6 +49,7 @@
       enable = true;
       keymaps = {
         "<leader>e" = "git_files";
+        "<leader>d" = "diagnostics_document";
       };
     };
 
