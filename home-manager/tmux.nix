@@ -10,6 +10,7 @@
 
   plugins = with pkgs; [
     tmuxPlugins.catppuccin
+    tmuxPlugins.vim-tmux-navigator
   ];
 
   extraConfig = ''

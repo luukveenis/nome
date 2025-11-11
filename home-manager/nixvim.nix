@@ -86,5 +86,6 @@
 
     endwise.enable = true;
     vim-surround.enable = true;
+    tmux-navigator.enable = true;
   };
 }
