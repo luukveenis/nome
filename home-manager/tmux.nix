@@ -23,8 +23,8 @@
     bind c new-window -c "#{pane_current_path}"
 
     # Arrow keys to reorder windows
-    bind -n C-Left swap-window -t -1
-    bind -n C-Right swap-window -t +1
+    bind C-Left swap-window -t -1
+    bind C-Right swap-window -t +1
 
     # Make arrow keys more useful
     bind -n S-Up copy-mode
