@@ -69,6 +69,7 @@
         };
       };
       servers = {
+        basedpyright.enable = true;
         bashls.enable = true;
         lua_ls.enable = true;
         nixd.enable = true;
